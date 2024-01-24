@@ -1,0 +1,19 @@
+<div style="padding: 10px;">
+    <div class="row" style="width: 100%;">
+        <div class="col-md-2" style="width: 14%; padding: 20px 40px 15px 60px;">
+            <Span style="font-weight: 500;">Type of Surgery</Span>
+        </div>
+        <div class="col-md-10" style="width: 40%; padding: 15px 0 15px 0;;">
+            <select class="form-select" (change)="onSelectSurgeryType($event)" aria-label="Default select example">
+                <option [value]="-1">Select</option>
+                <option *ngFor="let surgeryType of surgeries" [value]="surgeryType.id">
+                    {{surgeryType.name}}
+                </option>
+              </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <router-outlet></router-outlet>
+    </div>
+</div>

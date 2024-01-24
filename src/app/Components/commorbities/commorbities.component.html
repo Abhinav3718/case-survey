@@ -1,0 +1,15 @@
+<!-- <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+      Check me out
+    </label>
+  </div> -->
+
+
+<div class="form-check" *ngFor="let condition of healthConditions?.healthConditions">
+    <input class="form-check-input" type="checkbox" value="" id="comorbidity">
+    <label class="form-check-label" for="comorbidity">
+      {{condition}}
+    </label>
+ <div>
+  

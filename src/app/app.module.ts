@@ -5,16 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RIRSComponent } from './Components/RIRS/RIRS.component';
+import { FistulaComponent } from './Components/Fistula/Fistula.component';
+import { UserDetailsComponent } from './Components/user-details/user-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommorbitiesComponent } from './Components/commorbities/commorbities.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RIRSComponent,
+    FistulaComponent,
+    UserDetailsComponent,
+    CommorbitiesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
