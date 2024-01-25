@@ -2,3 +2,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+b {
+    font-size: 20px;
+}
+
+form {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.form-check-input[type=checkbox] {
+    color: black !important;
+    border: 1px solid !important;
+}
+

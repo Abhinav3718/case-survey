@@ -1,4 +1,7 @@
 <div style="background: white;">
     <app-user-details (onUserDetailsEntered)="onUserDetailsEntered($event)"/>
-    <app-commorbities *ngIf="enableCommorbities" />
+    <app-commorbities *ngIf="enableCommorbities" (onComorbitiesDetailsEntered)="onComorbitiesDetailsEntered($event)"/>
+    <!-- *ngIf="enableCommorbities" /> -->
+
+    <app-diagnosis *ngIf="enableDiagnosis"></app-diagnosis>
 </div>

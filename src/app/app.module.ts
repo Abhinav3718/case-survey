@@ -10,6 +10,8 @@ import { FistulaComponent } from './Components/Fistula/Fistula.component';
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommorbitiesComponent } from './Components/commorbities/commorbities.component';
+import { RadioSelectionValues } from './Shared/Models/SurveyDetails';
+import { DiagnosisComponent } from './Components/diagnosis/diagnosis.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { CommorbitiesComponent } from './Components/commorbities/commorbities.co
     RIRSComponent,
     FistulaComponent,
     UserDetailsComponent,
-    CommorbitiesComponent
+    CommorbitiesComponent,
+    DiagnosisComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { CommorbitiesComponent } from './Components/commorbities/commorbities.co
     ReactiveFormsModule 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // exports: [RadioSelectionValues]
 })
 export class AppModule { }

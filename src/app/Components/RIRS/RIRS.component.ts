@@ -9,6 +9,7 @@ export class RIRSComponent implements OnInit {
     constructor() {}
 
     enableCommorbities: boolean = false;
+    enableDiagnosis: boolean = false;
     
     ngOnInit(): void {
         
@@ -16,5 +17,11 @@ export class RIRSComponent implements OnInit {
 
     onUserDetailsEntered(isUserDetailsEntered: any) {
         this.enableCommorbities = isUserDetailsEntered;
+    }
+
+    onComorbitiesDetailsEntered(comorbitiesDetails: {}[] | undefined) {
+        if(comorbitiesDetails && comorbitiesDetails.length > 0) {
+            this.enableDiagnosis = true;
+        }
     }
 }
