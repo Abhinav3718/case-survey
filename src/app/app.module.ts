@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommorbitiesComponent } from './Components/commorbities/commorbities.component';
 import { RadioSelectionValues } from './Shared/Models/SurveyDetails';
 import { DiagnosisComponent } from './Components/diagnosis/diagnosis.component';
+import { PriorStuntDetailsComponent } from './Components/prior-stunt-details/prior-stunt-details.component';
+import { IntraOperativeFindingsComponent } from './Components/intra-operative-findings/intra-operative-findings.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DiagnosisComponent } from './Components/diagnosis/diagnosis.component';
     FistulaComponent,
     UserDetailsComponent,
     CommorbitiesComponent,
-    DiagnosisComponent
+    DiagnosisComponent,
+    PriorStuntDetailsComponent,
+    IntraOperativeFindingsComponent
   ],
   imports: [
     BrowserModule,
