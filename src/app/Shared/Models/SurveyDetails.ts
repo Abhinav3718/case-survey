@@ -40,6 +40,13 @@ export class Types {
     type?: InputTypes;
     type2?: InputTypes;
     controlName!: string;
+    placeHolder?: string;
+    formGroupName?: string;
+    formArrayName?: string;
+}
+
+export enum InputTypesCss {
+
 }
 
 export const INTRA_OPERATIVE_FINDINGS: Types[] = [
@@ -47,68 +54,79 @@ export const INTRA_OPERATIVE_FINDINGS: Types[] = [
         name: "Type of Laser",
         options: ["HOL", "TFL"],
         type: InputTypes.Radio,
-        controlName: 'laser_type'
+        controlName: 'laser_type',
+        formGroupName: 'laser_type_group'
     },
     {
         name: "Access Sheath Size",
         options: null,
         type: InputTypes.TextBox,
-        controlName: 'sheath_size'
+        controlName: 'sheath_size',
+        placeHolder: 'in mm'
     },
     {
         name: "How is Ureter?",
         options: ["Accommodable", "Difficult Access Sheath placement", "Narrow & Tight"],
         type: InputTypes.Radio,
-        controlName: 'ureter'
+        controlName: 'ureter',
+        formGroupName: 'ureter_group'
     },
     {
         name: "Bilateral or single side?",
         options: ["Bilateral", "Single side"],
         type: InputTypes.Radio,
-        controlName: 'spec'
+        controlName: 'spec',
+        formGroupName: 'spec_group'
     },
     {
         name: "Signs of infection, if any?",
         options: ["Yes", "No"],
         type: InputTypes.Radio,
-        controlName: 'infection_sign'
+        controlName: 'infection_sign',
+        formGroupName: 'infection_sign_group'
     },
     {
-        name: "Duration of Laser (in min)",
+        name: "Duration of Laser",
         options: null,
         type: InputTypes.TextBox,
-        controlName: 'duration'
+        controlName: 'duration',
+        placeHolder: 'in minutes'
     },
     {
         name: "Laser Settings",
         options: ["Frequency", "Energy"],
-        type: InputTypes.TextBox,
-        controlName: 'settings'
+        type: InputTypes.Checkbox,
+        controlName: 'settings',
+        formArrayName: 'settings_array'
     },
     {
         name: "Any residual stone on Fluoroscopy?",
         options: ["Yes", "No"],
         type: InputTypes.Radio,
-        controlName: 'residual_stone'
+        controlName: 'residual_stone',
+        formGroupName: 'residual_stone_group'
     },
     {
         name: "Intraoperative videos/pictures?",
         options: ["Yes", "No"],
         type: InputTypes.Radio,
         type2: InputTypes.File,
-        controlName: 'media'
+        controlName: 'media',
+        formGroupName: 'media_group'
     },
     {
         name: "Intraoperative vitals",
         options: ["Pulse rate", "BP", "SpO2"],
-        type: InputTypes.TextBox,
-        controlName: 'vitals'
+        type: InputTypes.Checkbox,
+        controlName: 'vitals',
+        formArrayName: 'vitals_array'
     },
     {
         name: "Post procedure stunt size",
         options: null,
         type: InputTypes.TextBox,
-        controlName: 'stunt_size'
+        controlName: 'stunt_size',
+        placeHolder: 'in mm'
     }
 ]
 

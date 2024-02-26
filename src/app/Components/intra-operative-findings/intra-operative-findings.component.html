@@ -1,22 +1,70 @@
 <!-- <div style="margin-top: 1rem; margin-left: 1rem;">
-    <b>{{title}}</b>
-    <div class="form-check" *ngFor="let metric of intraOperativeMetrics">
-      <input class="form-check-input" type="checkbox" value="" id="comorbidity" (change)="onConditionSelection($event, condition)">
-      <label class="form-check-label"  for="comorbidity">
-        {{condition}}
+  <b>{{title}}</b>
+
+<form [formGroup]="formGroup" (ngSubmit)="clicked()">
+  <div class="form-check row" *ngFor="let metric of intraOperativeMetrics; index as i">
+
+      <label class="form-check-label" style="font-family: fantasy;" for="{{metric.controlName}}">
+        {{i + 1}}. {{metric.name}}
       </label>
-      
-    </div>
-  
-  <form [formGroup]="formGroup" style="margin: 2rem 0 1rem 0;">
-    <div style="margin: 1rem;">
-      <label style="margin-right: 1rem;">
-        {{healthConditions?.preOperativeUrine.name}}
-      </label>
-      <input type="radio" [id]="radioSelectionValues.Yes" name="preoperative_urine_cs" [value]="radioSelectionValues.Yes" formControlName="preoperative_urine_cs">
-      <label [htmlFor]="radioSelectionValues.Yes" class="radio-label">{{radioSelectionValues.Yes}}</label>
-      <input type="radio" [id]="radioSelectionValues.No" name="preoperative_urine_cs" [value]="radioSelectionValues.No" formControlName="preoperative_urine_cs">
-      <label [htmlFor]="radioSelectionValues.No" class="radio-label">{{radioSelectionValues.No}}</label>
-    </div>
-  </form>
+      <div *ngIf="metric.options">
+        <div *ngFor="let option of metric.options; index as i">
+          <div  *ngIf="metric?.type !== 'radio' && metric.type != 'text'">
+            <input class="form-check-input" [type]="metric.type" formControlName="{{metric.controlName}}" id="{{option}}"
+            (change)="onConditionSelection($event, metric.controlName)" name="{{metric.controlName}}" value="{{option}}">
+          <label class="form-check-label" for="{{metric.controlName}}">
+            {{option}}
+          </label>
+          </div>
+
+          <div *ngIf="metric?.type == 'radio'">
+            <input (select)="onConditionSelection($event, option)" [type]="metric.type" id="{{option}}" value="{{option}}" name="{{metric.controlName}}" formControlName="{{metric.controlName}}">
+            <label for="{{option}}" class="radio-label">{{option}}</label>
+          </div>
+          
+        </div>  
+      </div>
+
+      <div *ngIf="!metric.options && (metric.type || metric.type2) && metric.type != 'checkbox'">
+        <div>
+          <input formControlName="{{metric.controlName}}" value="" [ngClass]="(metric.type === 'text') ? 'form-control input-text-css' : 'form-check-input'" type="{{metric.type}}" id="{{metric.controlName}}"
+            (change)="onConditionSelection($event, metric.name)" [placeholder]="metric.placeHolder">
+        </div>
+
+      </div>
+
+
+      <br/>
+  </div>
+
+  <button type="submit">click</button>
+</form>
+
 </div> -->
+
+
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div *ngFor="let field of intraOperativeMetrics">
+    <label>{{ field.name }}:</label>
+    <div *ngIf="field.type === 'text'">
+      <input type="text" [formControlName]="field.controlName">
+    </div>
+    <!-- <div *ngIf="field.type === 'radio'">
+      <label *ngFor="let option of field.options">
+        <input type="radio" [value]="option" [formControlName]="field.controlName"> {{ option }}
+      </label>
+    </div>
+    <div *ngIf="field.type === 'checkbox'">
+      <div formArrayName="{{field.controlName}}">
+        <label *ngFor="let option of field.options; let i = index">
+          <input type="checkbox" [formControlName]="i"> {{ option }}
+        </label>
+      </div>
+    </div>
+    <div *ngIf="field.type === 'file'">
+      <input type="file" [formControlName]="field.controlName">
+    </div> -->
+  </div>
+  <button type="submit">Submit</button>
+</form>
