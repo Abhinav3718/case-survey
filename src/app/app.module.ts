@@ -10,10 +10,11 @@ import { FistulaComponent } from './Components/Fistula/Fistula.component';
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommorbitiesComponent } from './Components/commorbities/commorbities.component';
-import { RadioSelectionValues } from './Shared/Models/SurveyDetails';
 import { DiagnosisComponent } from './Components/diagnosis/diagnosis.component';
 import { PriorStuntDetailsComponent } from './Components/prior-stunt-details/prior-stunt-details.component';
 import { IntraOperativeFindingsComponent } from './Components/intra-operative-findings/intra-operative-findings.component';
+import { TestComponent } from './test/test.component';
+import { ControlsModule } from './Shared/Controls/controls.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { IntraOperativeFindingsComponent } from './Components/intra-operative-fi
     CommorbitiesComponent,
     DiagnosisComponent,
     PriorStuntDetailsComponent,
-    IntraOperativeFindingsComponent
+    IntraOperativeFindingsComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { IntraOperativeFindingsComponent } from './Components/intra-operative-fi
     NgbModule,
     NoopAnimationsModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    ControlsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

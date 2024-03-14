@@ -1,0 +1,6 @@
+<div [formGroup]="myGroup">
+    <div *ngFor="let option of options; let i = index" formArrayName="{{controlName}}">
+        <input type="checkbox" [formControlName]="i">
+        <span>{{option}}</span>
+    </div>
+</div>

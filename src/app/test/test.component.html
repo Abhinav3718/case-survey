@@ -1,0 +1,51 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <!-- Textbox -->
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="username" placeholder="Enter username">
+      <div *ngIf="myForm.get('username')!.invalid && myForm.get('username')!.touched" class="text-danger">
+        Username is required.
+      </div>
+    </div>
+  
+    <!-- Radio buttons -->
+    <div class="form-check" *ngFor="let option of radioOptions; let i = index" >
+      <input type="radio" class="form-check-input"  [value]="option.id" id="radio{{i}}" formControlName="productMethod">
+      <label for="radio{{i}}" class="form-check-label">{{ option.name }}</label>
+    </div>
+  
+    <!-- Select dropdown -->
+    <div class="form-group">
+      <select class="form-control" formControlName="country">
+        <option value="">Please select a country</option>
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <!-- Add more options as needed -->
+      </select>
+      <div *ngIf="myForm.get('country')!.invalid && myForm.get('country')!.touched" class="text-danger">
+        Please select a country.
+      </div>
+    </div>
+  
+    <!-- Multi-checkbox -->
+    <!-- <div class="form-check"  *ngFor="let hobby of ['Reading', 'Sports', 'Cooking']" formControlName="hobbies">
+      <input type="checkbox" class="form-check-input" id="hobby" [value]="hobby" >
+      <label class="form-check-label">{{ hobby }}</label>
+    </div> -->
+
+
+    <!-- <div *ngFor="let hobby of ['Reading', 'Sports', 'Cooking']; let i = index">
+        <label>
+          <input type="checkbox" [formControlName]="i">
+          {{ hobby }}
+        </label>
+      </div> -->
+
+
+      <div *ngFor="let city of cities; let i = index" formArrayName="cities">
+        <input type="checkbox" [formControlName]="i">
+        <span>{{city}}</span>
+      </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  

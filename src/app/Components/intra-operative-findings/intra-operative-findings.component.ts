@@ -21,19 +21,43 @@ export class IntraOperativeFindingsComponent implements OnInit {
   //   contact: new FormControl('', [Validators.required]),
   //   address: new FormControl('', [Validators.required])
   // }
+  // typesOfLaser:
 
-  constructor(private fb: FormBuilder) {}
+  laser_type = ["HOL", "TFL"];
+  ureter_group = ["Accommodable", "Difficult Access Sheath placement", "Narrow & Tight"];
+  spec_group = ["Bilateral", "Single side"];
+  yes_no_group = ["Yes", "No"];
+  settings_array = ["Frequency", "Energy"];
+  vitals_array = ["Pulse rate", "BP", "SpO2"];
+
+
+
+
+  constructor(private fb: FormBuilder) {
+    this.formGroup = this.fb.group({
+      laser_type: ['', Validators.required],
+      sheath_size: ['', Validators.required],
+      ureter_group: ['', Validators.required],
+      spec_group: ['', Validators.required],
+      infection_sign_group: ['', Validators.required],
+      residual_stone_group: ['', Validators.required],
+      media_group: ['', Validators.required],
+      settings_array: this.fb.array(this.settings_array.map(r => false)),
+      vitals_array: this.fb.array(this.vitals_array.map(x => false)),
+      test_array: [[], Validators.required]
+    });
+  }
 
   
 
   ngOnInit(): void {
 
-    let controls: any[] = [];
+    // let controls: any[] = [];
 
-    this.intraOperativeMetrics.forEach((r: Types) => {
-      if(r.type === InputTypes.TextBox)
-      this.formGroup.addControl(this.getObj(r), [])
-    });
+    // this.intraOperativeMetrics.forEach((r: Types) => {
+    //   if(r.type === InputTypes.TextBox)
+    //   this.formGroup.addControl(this.getObj(r), [])
+    // });
 
     // controls.forEach(element => {
     //   this.fb.ge
@@ -49,6 +73,13 @@ export class IntraOperativeFindingsComponent implements OnInit {
     //     return acc;
     //   }, {})
     // );
+  }
+
+  formResult(e: FormGroup) {
+    console.log(e)
+    // if(e.controls.includes('laser_type'))
+    // this.formGroup.setControl('laser_type', e.controls['laser_type'])
+    // console.log(this.formGroup)
   }
 
   onConditionSelection(e: any, name: string) {
