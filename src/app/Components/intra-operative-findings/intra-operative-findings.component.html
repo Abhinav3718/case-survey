@@ -9,13 +9,84 @@
       <span>{{city}}</span>
     </div> -->
 
-    <radio controlName="laser_type" [options]="laser_type" (formResult)="formResult($event)"></radio>
-    <div>
-    <check-box controlName="settings_array" [options]="settings_array" (formResult)="formResult($event)"></check-box>
-      
+    <div class="form-group row">
+      <label for="laser_type" class="col-sm-2 col-form-label">Types of Laser</label>
+      <div class="col-sm-10">
+        <radio controlName="laser_type" [options]="laser_type" (formResult)="formResult($event)"></radio>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="sheath_size" class="col-sm-2 col-form-label">Access sheath size</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" minlength="10" maxlength="10" formControlName="sheath_size" placeholder="in mm">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="ureter_group" class="col-sm-2 col-form-label">How is Ureter size?</label>
+      <div class="col-sm-10">
+        <radio controlName="ureter_group" [options]="ureter_group" (formResult)="formResult($event)"></radio>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="spec_group" class="col-sm-2 col-form-label">Specification</label>
+      <div class="col-sm-10">
+        <radio controlName="spec_group" [options]="spec_group" (formResult)="formResult($event)"></radio>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="infection_sign_group" class="col-sm-2 col-form-label">Signs of infection, if any?</label>
+      <div class="col-sm-10">
+        <radio controlName="infection_sign_group" [options]="yes_no_group" (formResult)="formResult($event)"></radio>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="duration_of_lasing" class="col-sm-2 col-form-label">Duration of lasing</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="duration_of_lasing" placeholder="in minutes">
+      </div>
     </div>
 
 
+    <div class="form-group row">
+      <label for="settings_array" class="col-sm-2 col-form-label">Laser settings</label>
+      <div class="col-sm-10">
+        <check-box controlName="settings_array" [options]="settings_array" (formResult)="formResult($event)"></check-box>
+      </div>
+    </div>
 
-  <button type="submit">Submit</button>
+
+    <div class="form-group row">
+      <label for="residual_stone_group" class="col-sm-2 col-form-label">Any residual stone on fluroscopy?</label>
+      <div class="col-sm-10">
+        <radio controlName="residual_stone_group" [options]="yes_no_group" (formResult)="formResult($event)"></radio>
+      </div>
+    </div>
+
+
+    <!-- <div class="form-group row">
+      <label for="spec_group" class="col-sm-2 col-form-label">Specification</label>
+      <div class="col-sm-10">
+        <radio controlName="spec_group" [options]="spec_group" (formResult)="formResult($event)"></radio>
+      </div>
+    </div> -->
+
+
+    <br/>
+    <br/>
+
+
+    
+    <!-- <div>
+    <check-box controlName="settings_array" [options]="settings_array" (formResult)="formResult($event)"></check-box>
+      
+    </div> -->
+
+
+
+  <!-- <button type="submit">Submit</button> -->
 </form>

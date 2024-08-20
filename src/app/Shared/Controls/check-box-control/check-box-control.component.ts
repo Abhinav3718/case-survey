@@ -30,5 +30,13 @@ export class CheckboxControlComponent implements OnInit, OnDestroy {
         this.subscription?.unsubscribe();
     }
 
+    getPlaceholder(option: string) {
+        let settings_array = ["Frequency", "Energy"];
+        let objMapper: any = {Frequency: "in Hz", Energy: "in Joule"}
+        if (settings_array.includes(option)) {
+            return objMapper[option];
+        }
+    }
+
     
 } 

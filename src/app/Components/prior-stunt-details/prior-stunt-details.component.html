@@ -1,6 +1,6 @@
 <div style="margin-top: 1rem; margin-left: 1rem;">
     <b>{{title}}</b>
-<form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin: 2rem 0 1rem 0;">
+<form [formGroup]="form" style="margin: 2rem 0 1rem 0;">
     <div style="margin: 1rem;">
       <label style="margin-right: 1rem;">
         Is Prior stunt done?
@@ -27,7 +27,9 @@
           </div>
     </div>
 
-    <button [disabled]="!(form.valid || form.value.prior_stunt === radioSelectionValues.No)" class="btn btn-primary" type="submit">Submit</button>
+    <button [disabled]="!(form.valid || form.value.prior_stunt === radioSelectionValues.No)" class="btn btn-primary" type="button" (click)="onSubmit()">Submit</button>
+
+    <a [routerLink]="['introoperative']">Go to IntraOperativeFindings</a>
   
   </form>
 </div>

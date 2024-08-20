@@ -27,6 +27,7 @@ export class IntraOperativeFindingsComponent implements OnInit {
   ureter_group = ["Accommodable", "Difficult Access Sheath placement", "Narrow & Tight"];
   spec_group = ["Bilateral", "Single side"];
   yes_no_group = ["Yes", "No"];
+  yes_no_group2 = ["Yes", "No"];
   settings_array = ["Frequency", "Energy"];
   vitals_array = ["Pulse rate", "BP", "SpO2"];
 
@@ -40,6 +41,7 @@ export class IntraOperativeFindingsComponent implements OnInit {
       ureter_group: ['', Validators.required],
       spec_group: ['', Validators.required],
       infection_sign_group: ['', Validators.required],
+      duration_of_lasing: ['', Validators.required],
       residual_stone_group: ['', Validators.required],
       media_group: ['', Validators.required],
       settings_array: this.fb.array(this.settings_array.map(r => false)),

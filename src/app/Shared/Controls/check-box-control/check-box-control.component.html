@@ -2,5 +2,9 @@
     <div *ngFor="let option of options; let i = index" formArrayName="{{controlName}}">
         <input type="checkbox" [formControlName]="i">
         <span>{{option}}</span>
+        <div *ngIf="controlName === 'settings_array'" class="col-sm-5">
+            <input id={{option}} type="number" class="form-control" formControlName="duration_of_lasing" 
+            [placeholder]="getPlaceholder(option)">
+        </div>
     </div>
 </div>

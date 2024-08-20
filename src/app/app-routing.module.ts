@@ -3,17 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { RIRSComponent } from './Components/RIRS/RIRS.component';
 import { RouteGuard } from './Shared/Services/route-guard.service';
 import { FistulaComponent } from './Components/Fistula/Fistula.component';
+import { IntraOperativeFindingsComponent } from './Components/intra-operative-findings/intra-operative-findings.component';
+
+const baseRIRSpage = 'rirs';
+const baseFistulaPage = 'fistula';
 
 const routes: Routes = [
   {
-    path: 'rirs',
+    path: baseRIRSpage,
     component: RIRSComponent,
     canActivate: [RouteGuard]
   },
   {
-    path: 'fistula',
+    path: `${baseRIRSpage}/introoperative`,
+    component: IntraOperativeFindingsComponent
+  },
+  {
+    path: baseFistulaPage,
     component: FistulaComponent,
-    canActivate: [RouteGuard]
+    // canActivate: [RouteGuard]
   }
 ];
 

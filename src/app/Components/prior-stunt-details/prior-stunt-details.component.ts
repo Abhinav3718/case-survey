@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RadioSelectionValues } from '../../Shared/Models/SurveyDetails';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-prior-stunt-details',
@@ -9,7 +10,7 @@ import { RadioSelectionValues } from '../../Shared/Models/SurveyDetails';
 })
 export class PriorStuntDetailsComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {}
   title: string = 'Prior stunt details';
   radioSelectionValues = RadioSelectionValues;
 
@@ -30,6 +31,7 @@ export class PriorStuntDetailsComponent implements OnInit {
       values.size = '';
       this.form.setValue(values);
     }
-    console.log(this.form.value)
+    console.log(this.form.value);
+    this.router.navigate(['introoperative'], {relativeTo: this.route});
   }
 }

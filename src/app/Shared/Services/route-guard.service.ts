@@ -11,7 +11,7 @@ import { Injectable } from "@angular/core";
 export class RouteGuard implements CanActivate {
     constructor(private dataService: DataService) {}
     canActivate(): boolean {
-        return this.dataService.isSelectedSurgeryTypeValid();
+        return true; // this.dataService.isSelectedSurgeryTypeValid();
     }
 
 }

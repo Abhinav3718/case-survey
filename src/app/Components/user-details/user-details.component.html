@@ -35,9 +35,11 @@
               <div class="form-group row">
                 <label for="contact" class="col-sm-2 col-form-label">Contact</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" id="contact" formControlName="contact" placeholder="Contact number without area code">
+                  <input type="text" (keyup)="onInputContactNumber($event)" class="form-control" id="contact" minlength="10" maxlength="10" formControlName="contact" placeholder="Contact number without area code">
                 </div>
               </div>
+
+              <span *ngIf="formGroup.dirty && formGroup.invalid">Something wrongs</span>
           
           <button [disabled]="formGroup.invalid" class="btn btn-primary" type="submit">Submit</button>
         </form>
