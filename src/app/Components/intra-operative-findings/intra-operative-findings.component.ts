@@ -28,8 +28,8 @@ export class IntraOperativeFindingsComponent implements OnInit {
   spec_group = ["Bilateral", "Single side"];
   yes_no_group = ["Yes", "No"];
   yes_no_group2 = ["Yes", "No"];
-  settings_array = ["Frequency", "Energy"];
-  vitals_array = ["Pulse rate", "BP", "SpO2"];
+  settings_array_group = ["Frequency", "Energy"];
+  vitals_array_group = ["Pulse rate", "BP", "SpO2"];
 
 
 
@@ -44,8 +44,8 @@ export class IntraOperativeFindingsComponent implements OnInit {
       duration_of_lasing: ['', Validators.required],
       residual_stone_group: ['', Validators.required],
       media_group: ['', Validators.required],
-      settings_array: this.fb.array(this.settings_array.map(r => false)),
-      vitals_array: this.fb.array(this.vitals_array.map(x => false)),
+      settings_array: ['', Validators.required], //this.fb.array(this.settings_array.map(r => false)),
+      vitals_array: ['', Validators.required], // this.fb.array(this.vitals_array.map(x => false)),
       test_array: [[], Validators.required]
     });
   }

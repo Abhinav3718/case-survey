@@ -9,6 +9,10 @@ const baseRIRSpage = 'rirs';
 const baseFistulaPage = 'fistula';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'case-survey'
+  // },
   {
     path: baseRIRSpage,
     component: RIRSComponent,
